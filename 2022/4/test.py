@@ -16,5 +16,8 @@ class TestAOC(unittest.TestCase):
         answer = 2
         self.assertEqual(answer, solve_part_one(example))
 
+        answer = 4
+        self.assertEqual(answer, solve_part_two(example))
+
 
 unittest.main()

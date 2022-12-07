@@ -20,13 +20,33 @@ import re
 def solve_part_one(data):
     aoc.guess_input(data)
     lines = data.splitlines()
+    subsets = 0
     for line in lines:
-        pass
-    return None
+        spread = line.partition(",")
+        seta = range_to_set(spread[0].partition("-"))
+        setb = range_to_set(spread[2].partition("-"))
+        # print(f'A is {seta}\nB is {setb}')
+        if (seta <= setb) or (setb <= seta):
+            subsets += 1
+    return subsets
+
+
+def range_to_set(raange):
+    return set(range(int(raange[0]), int(raange[2]) + 1))
 
 
 def solve_part_two(data):
-    return None
+    lines = data.splitlines()
+    overlaps = 0
+    for line in lines:
+        spread = line.partition(",")
+        seta = range_to_set(spread[0].partition("-"))
+        setb = range_to_set(spread[2].partition("-"))
+        # print(f"A is {seta}\nB is {setb}")
+        if not seta.isdisjoint(setb):
+            overlaps += 1
+
+    return overlaps
 
 
 if __name__ == "__main__":
