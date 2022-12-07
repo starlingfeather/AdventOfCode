@@ -62,9 +62,9 @@ Simply download the wanted solution folders.
 Script can be run from the same directory:
 ```shell
 cd 2021/1
-python code.py
+python advent.py
 ```
-Note that the solution looks for files named `code.py` and `input.txt` and renaming them will not work.
+Note that the solution looks for files named `advent.py` and `input.txt` and renaming them will not work.
 
 ### Runner
 
@@ -74,7 +74,7 @@ pasting. The runner also has `pretty_errors` enabled, simply comment out its imp
 
 ### Tests
 
-Tests can be run by running `test.py` instead of `code.py`. They will only run if you specifically request it.
+Tests can be run by running `test.py` instead of `advent.py`. They will only run if you specifically request it.
 
 ## Contributing
 

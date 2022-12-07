@@ -26,7 +26,7 @@ def format_runtime(ms):
 
 
 def run(part_one_func, part_two_func, file):
-    with open((file.rstrip("code.py") + "input.txt"), 'r') as input_file:
+    with open((file.rstrip("advent.py") + "input.txt"), 'r') as input_file:
         data = input_file.read()
         total_time = 0
         copied_part = 0

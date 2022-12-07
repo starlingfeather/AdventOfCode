@@ -57,8 +57,8 @@ for y in years:
         if not os.path.exists(year_pos+"/"+str(d)):
             os.mkdir(year_pos+"/"+str(d))
         day_pos = year_pos+"/"+str(d)
-        if MAKE_CODE_TEMPLATE and not os.path.exists(day_pos+"/code.py"):
-            code = open(day_pos+"/code.py", "w+")
+        if MAKE_CODE_TEMPLATE and not os.path.exists(day_pos+"/advent.py"):
+            code = open(day_pos+"/advent.py", "w+")
             code.write(f"""# Advent of code Year {str(y)} Day {str(d)} solution
 # Author = {author}
 # Date = {date}
@@ -94,8 +94,9 @@ if __name__ == "__main__":
     runner.run(solve_part_one, solve_part_two, __file__)
 """)
             code.close()
-            codeTest = open(day_pos+"/test.py", "w+")
-            codeTest.write(f"""# Advent of code Year {str(y)} Day {str(d)} tests
+            if not os.path.exists(day_pos+"/test.py"):
+                codeTest = open(day_pos+"/test.py", "w+")
+                codeTest.write(f"""# Advent of code Year {str(y)} Day {str(d)} tests
 # Author = {author}
 # Date = {date}
 import unittest
@@ -112,7 +113,7 @@ class TestAOC(unittest.TestCase):
 
 unittest.main()
 """)
-            codeTest.close()
+                codeTest.close()
         if DOWNLOAD_INPUTS and (not os.path.exists(day_pos+"/input.txt") or OVERWRITE)and USER_SESSION_ID != "":
             done = False
             error_count = 0

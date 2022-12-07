@@ -22,7 +22,7 @@ def solve_part_one(data):
 
     crates = data.split("\n\n")[0]
     instructions = data.split("\n\n")[1]
-    numcrates = 
+    # numcrates =
     return None
 
 

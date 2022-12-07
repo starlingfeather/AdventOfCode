@@ -1,6 +1,6 @@
-multiset
+multiset~=3.0.1
 networkx
-numpy
+numpy~=1.23.5
 pretty_errors
-pyperclip
-requests
+pyperclip~=1.8.2
+requests~=2.28.1
