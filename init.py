@@ -11,15 +11,15 @@ DOWNLOAD_STATEMENTS = True # Set to false to not download statements. Note that 
 DOWNLOAD_INPUTS = True     # Set to false to not download inputs. Note that if the USER_SESSION_ID is wrong or left empty, inputs will not be downloaded.
 MAKE_CODE_TEMPLATE = True  # Set to false to not make code templates. Note that even if OVERWRITE is set to True, it will never overwrite codes.
 MAKE_URL = True            # Set to false to not create a direct url link in the folder.
-author = "?"               # Name automatically put in the code templates.
+author = "ambar"               # Name automatically put in the code templates.
 OVERWRITE = False          # If you really need to download the whole thing again, set this to true. As the creator said, AoC is fragile; please be gentle. Statements and Inputs do not change. This will not overwrite codes.
 
 # DATE SPECIFIC PARAMETERS
-date = "December 2021"               # Date automatically put in the code templates.
-starting_advent_of_code_year = 2021  # You can go as early as 2015.
-last_advent_of_code_year = 2021      # The setup will download all advent of code data up until that date included
+date = "December 2022"               # Date automatically put in the code templates.
+starting_advent_of_code_year = 2022  # You can go as early as 2015.
+last_advent_of_code_year = 2022      # The setup will download all advent of code data up until that date included
 starting_advent_of_code_day = 1      # You can go as early as 1 and as late as 25
-last_advent_of_code_day = 1          # If the year isn't finished, the setup will download days up until that day included for the last year
+last_advent_of_code_day = 25          # If the year isn't finished, the setup will download days up until that day included for the last year
 
 # Imports
 import os
