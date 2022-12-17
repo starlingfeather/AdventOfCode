@@ -100,7 +100,7 @@ if __name__ == "__main__":
 # Author = {author}
 # Date = {date}
 import unittest
-from code import *
+from advent import *
 
 
 class TestAOC(unittest.TestCase):

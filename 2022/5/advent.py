@@ -22,12 +22,71 @@ def solve_part_one(data):
 
     crates = data.split("\n\n")[0]
     instructions = data.split("\n\n")[1]
-    # numcrates =
-    return None
+    numcrates = int(crates.split()[-1])  # pick off the last integer
+    crates = crates.split("\n")  # break it into a list for each line
+    pile = defaultdict(deque)
+
+# set up the pile
+    for layer in range(len(crates) - 1):  # [0, 1, 2], deliberately skip the numbered row
+        for stack in range(numcrates):  # [0, 1, 2]
+            if crates[layer][(stack * 4) + 1] != ' ':  # starting with 1, every 4th character is your crate
+                pile[stack].appendleft(crates[layer][(stack * 4) + 1])
+            # print(f'layer is {layer}, stack is {stack}, pile[stack] is {pile[stack]}')
+
+# parse the instructions
+    instrs = instructions.split("\n")
+    for step in range(len(instrs)):
+        move = list(aoc.extract_ints(instrs[step]))
+        # print(f'move is {move}')
+        num = move[0]
+        src = move[1]-1
+        dst = move[2]-1
+        for i in range(num):
+            pile[dst].append(pile[src].pop())
+
+# assemble the string
+    message = ''
+    for i in range(len(pile)):
+        message = message + pile[i].pop()
+
+    return message
 
 
 def solve_part_two(data):
-    return None
+    crates = data.split("\n\n")[0]
+    instructions = data.split("\n\n")[1]
+    numcrates = int(crates.split()[-1])  # pick off the last integer
+    crates = crates.split("\n")  # break it into a list for each line
+    pile = defaultdict(deque)
+
+    # set up the pile
+    for layer in range(len(crates) - 1):  # [0, 1, 2], deliberately skip the numbered row
+        for stack in range(numcrates):  # [0, 1, 2]
+            if crates[layer][(stack * 4) + 1] != ' ':  # starting with 1, every 4th character is your crate
+                pile[stack].appendleft(crates[layer][(stack * 4) + 1])
+            # print(f'layer is {layer}, stack is {stack}, pile[stack] is {pile[stack]}')
+
+    # parse the instructions
+    instrs = instructions.split("\n")
+    for step in range(len(instrs)):
+        move = list(aoc.extract_ints(instrs[step]))
+        # print(f'move is {move}')
+        num = move[0]
+        src = move[1] - 1
+        dst = move[2] - 1
+        grab = deque()
+        for i in range(num):
+            grab.appendleft(pile[src].pop())
+        # print(f'grab is {grab}')
+        pile[dst].extend(grab)
+        # print(f'pile[dst] is {pile[dst]}')
+
+    # assemble the string
+    message = ''
+    for i in range(len(pile)):
+        message = message + pile[i].pop()
+
+    return message
 
 
 if __name__ == "__main__":

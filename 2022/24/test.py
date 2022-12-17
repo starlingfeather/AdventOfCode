@@ -2,7 +2,7 @@
 # Author = ambar
 # Date = December 2022
 import unittest
-from code import *
+from advent import *
 
 
 class TestAOC(unittest.TestCase):
