@@ -19,14 +19,19 @@ import re
 
 def solve_part_one(data):
     aoc.guess_input(data)
-    lines = data.splitlines()
-    for line in lines:
-        pass
-    return None
+
+    for i in range(4, len(data)):
+        bite = data[i-4:i]
+        if len(bite) == len(list(set(bite))):
+            return i
+
 
 
 def solve_part_two(data):
-    return None
+    for i in range(14, len(data)):
+        bite = data[i-14:i]
+        if len(bite) == len(list(set(bite))):
+            return i
 
 
 if __name__ == "__main__":
